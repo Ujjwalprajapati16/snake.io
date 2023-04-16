@@ -1,0 +1,32 @@
+This code is an implementation of the classic Snake game using Java's Swing library for creating the graphical user interface. The game window has a black background with a size of 300x300 pixels. The snake is represented by a series of dots that move on the screen, and the goal is to eat the apple that appears at random positions to grow longer. The game ends when the snake collides with the screen boundaries or with its own body.
+The Board class extends JPanel and implements the ActionListener interface for handling events. It contains methods for initializing the game window, loading images, drawing the game components, checking for game over conditions, updating the game state, and handling key events.
+
+The initBoard() method sets up the game window by adding a key listener, setting the background color, making the panel focusable, and setting its preferred size. It also loads the images for the snake body, apple, and head using ImageIcon and getImage() methods.
+
+The initGame() method initializes the game state by setting the initial positions of the snake body and the apple, and starting the game timer with a specified delay.
+
+The paintComponent() method is called automatically by the Swing framework to redraw the panel. It is overridden to draw the game components on the panel using the Graphics object passed as a parameter.
+
+The doDrawing() method is responsible for drawing the apple, snake body, and head on the panel using the drawImage() method of the Graphics object.
+
+The gameOver() method is called when the game is over and displays a "Game Over" message in the center of the panel using the drawString() method of the Graphics object.
+
+The checkApple() method checks if the snake has eaten the apple by comparing the coordinates of the snake's head with the coordinates of the apple. If the snake has eaten the apple, the snake grows longer by incrementing the dots variable, and a new apple is placed at a random position on the panel.
+
+The move() method updates the positions of the snake body dots based on the current direction of the snake.
+
+The checkCollision() method checks for collisions between the snake and the screen boundaries or its own body. If a collision occurs, the inGame variable is set to false, and the game is stopped by calling the stop() method of the game timer.
+
+The locateApple() method generates random positions for the apple on the panel by generating random numbers and multiplying them by the size of the dots.
+
+The actionPerformed() method is called by the game timer and updates the game state by checking for apple collisions, collisions with the screen boundaries or the snake's body, and moving the snake. It then repaints the panel to update the display.
+
+The TAdapter class is an inner class that extends KeyAdapter and overrides the keyPressed() method to handle key events for changing the direction of the snake. It sets the direction flags based on the key code of the pressed key and makes sure that the snake cannot reverse its direction by checking the current direction flags.
+
+This code appears to be the main class for a simple Snake game using Java's Swing library. It creates a JFrame window for the game, sets up the game board using a custom class called "Board", and configures various properties of the window such as title, size, and default close operation.
+
+The initUI() method initializes the game window by adding an instance of the "Board" class to it, which presumably contains the game logic and graphics. The window is set to be non-resizable and packed to its preferred size. The title is set to "Snake", and the window is centered on the screen. The default close operation is set to exit the application when the window is closed.
+
+The main() method is the entry point of the program. It uses EventQueue.invokeLater() to schedule the creation of a new instance of the "Snake" class on the event dispatch thread, which is the recommended way to create Swing components and ensure thread safety.
+
+Overall, this code provides a basic framework for a Snake game window using Swing, and additional logic for game mechanics and graphics can be added to the "Board" class to complete the game.
